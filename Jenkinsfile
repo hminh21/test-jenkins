@@ -20,7 +20,6 @@ pipeline {
         stage('Remove closed PR builds in workspace'){
             steps{
                 echo 'Deleting closed PR...'
-                
             }
         }
     }
