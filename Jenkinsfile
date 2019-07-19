@@ -25,7 +25,7 @@ pipeline {
                 script {
                     String res = sh(script: 'curl -s -X GET --header "Content-Type: application/json" https://api.github.com/repos/hminh21/test-jenkins/pulls?state=closed', returnStdout: true)
                     def jsonSlurper = new JsonSlurper()
-                    def data = jsonSlurper.parseText(res)
+                    def data = jsonSlurper.parseText(res.substring(1, res.length() - 2))
                     //def data = readJSON text: res
                     echo data[0]
                 }
