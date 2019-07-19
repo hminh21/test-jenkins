@@ -25,10 +25,10 @@ pipeline {
             steps{
                 script
                 {
-                    def res = sh(script: 'curl -u hminh21:7f1f9f149258f3170e537caea4bf0a7f870b516c -s https://api.github.com/repos/hminh21/test-jenkins/pulls?state=closed', returnStdout: true)
+                    def res = sh(script: 'curl -u hminh21:4d588457306497f940f481efc73312168a3ba511 -s https://api.github.com/repos/hminh21/test-jenkins/pulls?state=closed', returnStdout: true)
                     def jsonSlurper = new JsonSlurper()
                     def data = jsonSlurper.parseText("${res}")
-                    echo data
+                    echo data[0].number
                 }
             }
         }
