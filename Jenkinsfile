@@ -20,7 +20,7 @@ pipeline {
         stage('Checking PR if it is closed...'){
             when {
                 expression {
-                    return env.CHANGE_ID && pullRequest.status == 'closed'
+                    return env.CHANGE_ID && pullRequest.statuses == 'closed'
                 }
             }
 
