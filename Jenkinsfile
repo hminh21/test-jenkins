@@ -27,7 +27,7 @@ pipeline {
                     def jsonSlurper = new JsonSlurper()
                     def data = jsonSlurper.parseText(res.substring(1, res.length() - 2))
                     //def data = readJSON text: res
-                    echo data[0]
+                    echo res.substring(1, res.length() - 2)
                 }
             }
         }
