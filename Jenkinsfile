@@ -17,7 +17,17 @@ pipeline {
                 echo 'Deploying....'
             }
         }
-        stage('Checking PR if it is closed...'){
+        stage('List all PR')
+        {
+            steps{
+                script
+                {
+                    def res = sh 'curl https://api.github.com/repos/hminh21/test-jenkins/pulls?state=all'
+                    echo res
+                }
+            }
+        }
+        /*stage('Checking PR if it is closed...'){
             when {
                 expression {
                     return env.CHANGE_ID && pullRequest.state == 'open'
@@ -27,9 +37,10 @@ pipeline {
             steps {
                 sh("printenv")
                 script {
-                    echo 'Removing closed PR ${env.BRANCH_NAME}'
+                    echo 'Removing closed PR ' ${env.BRANCH_NAME}
                 }
             }
-        }
+        }*/
+
     }
 }
