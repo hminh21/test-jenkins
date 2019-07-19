@@ -17,9 +17,22 @@ pipeline {
                 echo 'Deploying....'
             }
         }
-        stage('Remove closed PR builds in workspace'){
-            steps{
-                echo 'Deleting closed PR'
+        stage('Checking PR if it is closed...'){
+            when {
+                expression {
+                    return env.CHANGE_ID && pullRequest.status == 'closed'
+                }
+            }
+
+            environment {
+
+            }
+
+            steps {
+                sh("printenv")
+                script {
+                    echo 'Removing closed PR ${env.BRANCH_NAME}'
+                }
             }
         }
     }
