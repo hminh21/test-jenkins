@@ -27,7 +27,7 @@ pipeline {
                     def jsonSlurper = new JsonSlurper()
                     Map data = jsonSlurper.parseText('{ "name": "John Doe" }')
                     //def data = readJSON text: res
-                    assert data
+                    assert data.name == 'John Doe'
                 }
             }
         }
