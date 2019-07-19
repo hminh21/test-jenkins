@@ -22,7 +22,7 @@ pipeline {
         }
         stage('List all PR')
         {
-            steps{
+           /* steps{
                 script
                 {
                     def res = sh(script: 'curl -s https://api.github.com/repos/hminh21/test-jenkins/pulls?state=closed', returnStdout: true)
@@ -32,6 +32,7 @@ pipeline {
                 }
             }
         }
+        */
         /*stage('Checking PR if it is closed...'){
             when {
                 expression {
