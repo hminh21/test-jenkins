@@ -23,7 +23,7 @@ pipeline {
         stage('List all PR') {
             steps {
                 script {
-                    String res = sh(script: 'curl -s https://api.github.com/repos/hminh21/test-jenkins/pulls?state=closed', returnStdout: true)
+                    String res = sh(script: 'curl -s -X GET --header "Content-Type: application/json" https://api.github.com/repos/hminh21/test-jenkins/pulls?state=closed', returnStdout: true)
                     def jsonSlurper = new JsonSlurper()
                     def data = jsonSlurper.parseText(res)
                     //def data = readJSON text: res
