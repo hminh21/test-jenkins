@@ -27,7 +27,7 @@ pipeline {
                     def jsonSlurper = new JsonSlurper()
                     def data = jsonSlurper.parseText("${res}")
                     echo data
-                    echo data.number
+                    echo data[0].number
                 }
             }
         }
