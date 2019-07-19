@@ -24,10 +24,6 @@ pipeline {
                 }
             }
 
-            environment {
-
-            }
-
             steps {
                 sh("printenv")
                 script {
