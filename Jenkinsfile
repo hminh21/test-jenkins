@@ -1,4 +1,5 @@
 import groovy.json.JsonSlurper
+import groovy.json.JsonOutput
 
 pipeline {
     agent any
@@ -25,10 +26,10 @@ pipeline {
                 script
                 {
                     def res = sh(script: 'curl -s https://api.github.com/repos/hminh21/test-jenkins/pulls?state=all', returnStdout: true)
-                    def jsonSlurper = new JsonSlurper()
-                    def data = jsonSlurper.parseText("${res}")
+                    //def jsonSlurper = new JsonSlurper()
+                    //def data = jsonSlurper.parseText("${res}")
                     echo res
-                    echo data
+                    //echo data
                 }
             }
         }
