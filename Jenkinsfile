@@ -27,7 +27,7 @@ pipeline {
                     //def jsonSlurper = new JsonSlurper()
                     //Map data = jsonSlurper.parseText(res)
                     def data = readJSON text: res
-                    echo data[0]["number"]
+                    echo data[0]["url"]
                 }
             }
         }
