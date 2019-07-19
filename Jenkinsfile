@@ -30,9 +30,8 @@ pipeline {
                     def data = jsonSlurper.parseText("${res}")
                     echo data[0].number
                 }
-            }
+            }*/
         }
-        */
         /*stage('Checking PR if it is closed...'){
             when {
                 expression {
