@@ -22,7 +22,7 @@ pipeline {
             steps{
                 script
                 {
-                    def res = 'curl -s https://api.github.com/repos/hminh21/test-jenkins/pulls?state=all'
+                    def res = sh(script: 'curl -s https://api.github.com/repos/hminh21/test-jenkins/pulls?state=all')
                     echo res
                 }
             }
