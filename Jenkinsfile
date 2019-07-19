@@ -28,8 +28,7 @@ pipeline {
                     def res = sh(script: 'curl -u hminh21:7f1f9f149258f3170e537caea4bf0a7f870b516c -s https://api.github.com/repos/hminh21/test-jenkins/pulls?state=closed', returnStdout: true)
                     def jsonSlurper = new JsonSlurper()
                     def data = jsonSlurper.parseText("${res}")
-                    echo res
-                    echo data.number
+                    echo data
                 }
             }
         }
