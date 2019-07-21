@@ -20,7 +20,7 @@ pipeline {
                 echo 'Deploying....'
             }
         }
-        stage('List all PR') {
+       /* stage('List all PR') {
             steps {
                 script {
                     String res = sh(script: "curl -s -X GET --header 'Content-Type: application/json' https://api.github.com/repos/hminh21/test-jenkins/pulls?state=closed", returnStdout: true)
@@ -30,13 +30,13 @@ pipeline {
                     echo data[0]["url"]
                 }
             }
-        }
-        /*stage('Checking PR if it is closed...'){
-            when {
+        }*/
+        stage('Checking PR if it is closed...'){
+            /*when {
                 expression {
                     return env.CHANGE_ID && pullRequest.state == 'open'
                 }
-            }
+            }*/
 
             steps {
                 sh("printenv")
@@ -44,6 +44,6 @@ pipeline {
                     echo 'Removing closed PR ' ${env.BRANCH_NAME}
                 }
             }
-        }*/
+        }
     }
 }
