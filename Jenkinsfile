@@ -53,7 +53,7 @@ pipeline {
              def res = readJSON text: resJson
              
              //Do delete job in jenkins
-             statusCode = sh(script: "curl -f --show-error -s -X POST -u hminh21:${API_TOKEN} -H 'Jenkins-Crumb:${res['crumb']}' https://a27a5fef.ngrok.io/job/kobiton-inc/job/${env.repo}/view/change-requests/job/PR-${env.number}/doDelete", returnStatus: true)
+             statusCode = sh(script: "curl -f --show-error -s -X POST -u hminh21:${API_TOKEN} -H 'Jenkins-Crumb:${res['crumb']}' https://665d4b32.ngrok.io/job/kobiton-inc/job/${env.repo}/view/change-requests/job/PR-${env.number}/doDelete", returnStatus: true)
 
              if (statusCode == 0) {
                  echo "PR-${env.number} job in ${env.repo} has been deleted"
