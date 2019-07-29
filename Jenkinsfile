@@ -28,6 +28,8 @@ pipeline {
                     PR_WORKSPACE_DIRECTORY = "${env.JENKINS_HOME}/jobs/kobiton-inc/jobs/booster-auto.1vadu4.ution-runner/branches/PR-${env.number}"
                 }
 
+                echo "${env.PR_WORKSPACE_DIRECTORY}"
+                
                 if (fileExists(env.PR_WORKSPACE_DIRECTORY)) {
                     dir("${env.PR_WORKSPACE_DIRECTORY}")
                     {
