@@ -10,8 +10,8 @@ pipeline {
      ],
      token: 'TriggerPR',
      causeString: 'Triggered on $action Pull Request',
-     regexpFilterText: '$action kobiton/$repo/master',
-     regexpFilterExpression: 'closed ' + JOB_NAME,
+     regexpFilterText: '$action $url',
+     regexpFilterExpression: 'closed ' + GIT_URL,
      printContributedVariables: true,
      printPostContent: true
     )
@@ -22,7 +22,7 @@ pipeline {
  }
 
   stages {
-    stage('Removing PR-$number $action in workspace') {
+    stage("Removing PR-${env.number} ${env.action} in workspace") {
         steps {
             script {
                 if (env.repo == "booster-automated-execution-runner") {
