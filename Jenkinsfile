@@ -6,12 +6,12 @@ pipeline {
       [key: 'action', value: '$.action'],
       [key: 'number', value: '$.number'],
       [key: 'repo', value: '$.repository.name'],
-      [key: 'url', value: '$.clone_url']
+      [key: 'url', value: '$.repository.clone_url']
      ],
      token: 'TriggerPR',
      causeString: 'Triggered on $action Pull Request',
-     regexpFilterText: '$action',
-     regexpFilterExpression: 'closed',
+     regexpFilterText: '$action $url',
+     regexpFilterExpression: 'closed' + GIT_URL,
      printContributedVariables: true,
      printPostContent: true
     )
