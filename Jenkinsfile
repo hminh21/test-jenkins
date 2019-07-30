@@ -5,13 +5,13 @@ pipeline {
      genericVariables: [
       [key: 'action', value: '$.action'],
       [key: 'number', value: '$.number'],
-      [key: 'repo', value: '$.repository.name']
+      [key: 'repo', value: '$.repository.name'],
       [key: 'url', value: '$.clone_url']
      ],
      token: 'TriggerPR',
      causeString: 'Triggered on $action Pull Request',
-     regexpFilterText: '$action',
-     regexpFilterExpression: 'closed',
+     regexpFilterText: '$url',
+     regexpFilterExpression: GIT_URL,
      printContributedVariables: true,
      printPostContent: true
     )
