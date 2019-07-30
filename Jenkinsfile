@@ -5,8 +5,7 @@ pipeline {
      genericVariables: [
       [key: 'action', value: '$.action'],
       [key: 'number', value: '$.number'],
-      [key: 'repo', value: '$.repository.name'],
-      [key: 'url', value: '$.repository.clone_url']
+      [key: 'repo', value: '$.repository.name']
      ],
      token: 'TriggerPR',
      causeString: 'Triggered on $action Pull Request',
@@ -53,7 +52,7 @@ pipeline {
           script {
               withCredentials([string(credentialsId: 'f9740fa6-1539-43d5-ad6b-eae3ddbf2e9d', variable: 'API_TOKEN')]) {
              //Get Jenkins-Crumb
-             resJson = sh(script: "curl -s -u hminh21:${API_TOKEN} http://dbe5b623.ngrok.io/crumbIssuer/api/json", returnStdout: true)
+             resJson = sh(script: "curl -s -u hminh21:${API_TOKEN} https://dbe5b623.ngrok.io/crumbIssuer/api/json", returnStdout: true)
              def res = readJSON text: resJson
              
              //Do delete job in jenkins
