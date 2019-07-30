@@ -5,11 +5,12 @@ pipeline {
      genericVariables: [
       [key: 'action', value: '$.action'],
       [key: 'number', value: '$.number'],
-      [key: 'repo', value: '$.repository.name']
+      [key: 'repo', value: '$.repository.name'],
+      [key: 'branch', value: '$.pull_request.base.ref']
      ],
      token: 'TriggerPR',
      causeString: 'Triggered on $action Pull Request',
-     regexpFilterText: '$action kobiton/$repo/' + BRANCH_NAME,
+     regexpFilterText: '$action kobiton/$repo/$branch',
      regexpFilterExpression: 'closed ' + JOB_NAME,
      printContributedVariables: true,
      printPostContent: true
