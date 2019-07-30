@@ -10,8 +10,8 @@ pipeline {
      ],
      token: 'TriggerPR',
      causeString: 'Triggered on $action Pull Request',
-     regexpFilterText: '$action $url',
-     regexpFilterExpression: 'closed ' + GIT_URL,
+     regexpFilterText: '$action kobiton/$repo/' + BRANCH_NAME,
+     regexpFilterExpression: 'closed ' + JOB_NAME,
      printContributedVariables: true,
      printPostContent: true
     )
