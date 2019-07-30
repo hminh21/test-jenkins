@@ -1,4 +1,4 @@
-@Library("minh-pipeline@master")
+@Library("minh-pipeline@master") _
 
 pipeline {
   agent any
@@ -21,6 +21,11 @@ pipeline {
 
   stages {
     stage('Remove PR in workspace') {
+        when {
+            expression {
+                return env.action == "closed"
+            }
+        }
         steps {
             script {
                 if (!utils.removePullRequest("f9740fa6-1539-43d5-ad6b-eae3ddbf2e9d")) {
