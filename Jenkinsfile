@@ -10,7 +10,7 @@ pipeline {
      token: 'TriggerPR',
      causeString: 'Triggered on $action Pull Request',
      regexpFilterText: 'kobiton/$repo/$BRANCH_NAME',
-     regexpFilterExpression: JOB_NAME,
+     regexpFilterExpression: 'kobiton/test-jenkins/master',
      printContributedVariables: true,
      printPostContent: true
     )
