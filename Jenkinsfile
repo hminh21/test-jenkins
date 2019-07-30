@@ -22,7 +22,7 @@ pipeline {
  }
 
   stages {
-    stage("Removing PR-${env.number} ${env.action} in workspace") {
+    stage('Remove PR in workspace') {
         steps {
             script {
                 if (env.repo == "booster-automated-execution-runner") {
