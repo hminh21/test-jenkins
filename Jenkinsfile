@@ -9,8 +9,8 @@ pipeline {
      ],
      token: 'TriggerPR',
      causeString: 'Triggered on $action Pull Request',
-     regexpFilterText: '$action',
-     regexpFilterExpression: 'closed',
+     regexpFilterText: 'kobiton/$repo/env.BRANCH_NAME',
+     regexpFilterExpression: JOB_NAME,
      printContributedVariables: true,
      printPostContent: true
     )
@@ -50,9 +50,9 @@ pipeline {
   post {
       success {
           script {
-              withCredentials([string(credentialsId: '0f35f85f-d840-4caa-b49c-0ed13605a301', variable: 'API_TOKEN')]) {
+              withCredentials([string(credentialsId: 'f9740fa6-1539-43d5-ad6b-eae3ddbf2e9d', variable: 'API_TOKEN')]) {
              //Get Jenkins-Crumb
-             resJson = sh(script: "curl -s -u hminh21:${API_TOKEN} https://665d4b32.ngrok.io/crumbIssuer/api/json", returnStdout: true)
+             resJson = sh(script: "curl -s -u hminh21:${API_TOKEN} http://dbe5b623.ngrok.io/crumbIssuer/api/json", returnStdout: true)
              def res = readJSON text: resJson
              
              //Do delete job in jenkins
