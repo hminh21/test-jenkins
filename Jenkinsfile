@@ -6,11 +6,12 @@ pipeline {
       [key: 'action', value: '$.action'],
       [key: 'number', value: '$.number'],
       [key: 'repo', value: '$.repository.name']
+      [key: 'url', value: '$.clone_url']
      ],
      token: 'TriggerPR',
      causeString: 'Triggered on $action Pull Request',
-     regexpFilterText: 'kobiton/$repo/',
-     regexpFilterExpression: 'kobiton/test-jenkins/[^()]+',
+     regexpFilterText: '$url',
+     regexpFilterExpression: 'https://github.com/hminh21/test-jenkins.git',
      printContributedVariables: true,
      printPostContent: true
     )
