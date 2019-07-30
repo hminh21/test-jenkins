@@ -11,7 +11,7 @@ pipeline {
      token: 'TriggerPR',
      causeString: 'Triggered on $action Pull Request',
      regexpFilterText: '$url',
-     regexpFilterExpression: GIT_URL,
+     regexpFilterExpression: "${GIT_URL}",
      printContributedVariables: true,
      printPostContent: true
     )
