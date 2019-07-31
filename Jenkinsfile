@@ -37,13 +37,13 @@ pipeline {
         post {
             failure {
                 script {
-                    echo "failure"
+                    sendToSlack("Clean up workspace fail")
                 }
             }
 
             success {
                 script {
-                    echo "success"
+                    sendToSlack("Clean up workspace successfully")
                 }
             }
         }
