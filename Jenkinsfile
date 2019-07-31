@@ -34,7 +34,7 @@ pipeline {
             }
         }
 
-        post {
+        /*post {
             failure {
                 script {
                     echo "fail"
@@ -46,7 +46,7 @@ pipeline {
                     echo "success"
                 }
             }
-        }
+        }*/
     }
   }
 }
