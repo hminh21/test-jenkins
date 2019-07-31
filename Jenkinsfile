@@ -28,9 +28,10 @@ pipeline {
 
         steps {
             script {
-                if (!utils.removePullRequest("f9740fa6-1539-43d5-ad6b-eae3ddbf2e9d")) {
+                /*if (!utils.removePullRequest("f9740fa6-1539-43d5-ad6b-eae3ddbf2e9d")) {
                     currentBuild.result = "FAILURE"
-                } 
+                } */
+                utils.removePullRequest("f9740fa6-1539-43d5-ad6b-eae3ddbf2e9d")
             }
         }
 
