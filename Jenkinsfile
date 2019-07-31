@@ -33,20 +33,6 @@ pipeline {
                 }
             }
         }
-
-        post {
-            failure {
-                script {
-                    echo "fail"
-                }
-            }
-
-            success {
-                script {
-                    echo "success"
-                }
-            }
-        }
     }
   }
 }
