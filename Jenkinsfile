@@ -20,6 +20,9 @@ pipeline {
  }
   
   stages {
+    stage ('print env') {
+     sh('printenv') 
+    }
     stage('Remove PR in workspace') {
         when {
             expression {
