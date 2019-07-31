@@ -12,7 +12,7 @@ pipeline {
      token: 'TriggerPR',
      causeString: 'Triggered on $action Pull Request',
      regexpFilterText: '$action kobiton/$repo/PR-$number',
-     regexpFilterExpression: 'closed' + JOB_NAME,
+     regexpFilterExpression: 'closed ' + JOB_NAME,
      printContributedVariables: true,
      printPostContent: true
     )
