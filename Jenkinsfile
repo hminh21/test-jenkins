@@ -31,6 +31,14 @@ pipeline {
                 if (!utils.removePullRequest("f9740fa6-1539-43d5-ad6b-eae3ddbf2e9d")) {
                     currentBuild.result = "FAILURE"
                 }
+                //Remove builds manually
+                dir("${env.WORSPACE}") {
+                    dir("../../") {
+                        dir("jobs/kobiton/jobs/${repo}/branches") {
+                            sh("rm -rf PR-${number}")
+                        }
+                    }
+                }
             }
         }
     }
