@@ -34,8 +34,8 @@ pipeline {
                 //Remove builds manually
                 dir("${env.WORSPACE}") {
                     dir("../../") {
-                        dir("jobs/kobiton/jobs/${repo}/branches") {
-                            sh("rm -rf PR-${number}")
+                        dir("jobs/kobiton/jobs/${repo}/branches/PR-${number}") {
+                            deleteDir()
                         }
                     }
                 }
