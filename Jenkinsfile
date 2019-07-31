@@ -11,8 +11,8 @@ pipeline {
      ],
      token: 'TriggerPR',
      causeString: 'Triggered on $action Pull Request',
-     regexpFilterText: '$action kobiton/$repo/PR-$number',
-     regexpFilterExpression: 'closed ' + JOB_NAME,
+     regexpFilterText: 'kobiton/$repo/PR-$number',
+     regexpFilterExpression: '' + JOB_NAME,
      printContributedVariables: true,
      printPostContent: true
     )
@@ -30,22 +30,6 @@ pipeline {
             script {
                 if (!utils.removePullRequest("f9740fa6-1539-43d5-ad6b-eae3ddbf2e9d")) {
                     currentBuild.result = "FAILURE"
-                }
-            }
-        }
-
-        post {
-            failure {
-                script {
-                    //sendToSlack("Clean up workspace fail")
-                    slackSend(color: "warning", message: "Cleanup workspace fail")
-                }
-            }
-
-            success {
-                script {
-                    //sendToSlack("Clean up workspace successfully")
-                     slackSend(color: "warning", message: "Cleanup workspace successfully")
                 }
             }
         }
