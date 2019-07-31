@@ -37,13 +37,15 @@ pipeline {
         post {
             failure {
                 script {
-                    sendToSlack("Clean up workspace fail")
+                    //sendToSlack("Clean up workspace fail")
+                    slackSend(color: "warning", message: "Cleanup workspace fail")
                 }
             }
 
             success {
                 script {
-                    sendToSlack("Clean up workspace successfully")
+                    //sendToSlack("Clean up workspace successfully")
+                     slackSend(color: "warning", message: "Cleanup workspace successfully")
                 }
             }
         }
