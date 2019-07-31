@@ -34,20 +34,6 @@ pipeline {
                 utils.removePullRequest("f9740fa6-1539-43d5-ad6b-eae3ddbf2e9d")
             }
         }
-
-        /*post {
-            failure {
-                script {
-                    echo "fail"
-                }
-            }
-
-            success {
-                script {
-                    echo "success"
-                }
-            }
-        }*/
     }
   }
 }
