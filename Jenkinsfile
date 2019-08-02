@@ -28,7 +28,7 @@ pipeline {
 
         steps {
             script {
-               utils.removePullRequest("f9740fa6-1539-43d5-ad6b-eae3ddbf2e9d")
+               utils.removePullRequest("api-token")
             }
         }
     }
