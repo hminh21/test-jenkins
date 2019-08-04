@@ -18,7 +18,8 @@ pipeline {
     )
  }
 
-   stage('Remove PR in workspace') {
+ stages {
+     stage('Remove PR in workspace') {
       when {
           expression {
               return env.action == "closed"
@@ -33,4 +34,5 @@ pipeline {
           }
       }
     }  
+ }
 }
