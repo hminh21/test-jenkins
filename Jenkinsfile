@@ -28,7 +28,7 @@ pipeline {
 
         steps {
             script {
-               utils.removePullRequest("api-token")
+               utils.removePullRequest("jenkins-api-token")
             }
         }
     }
